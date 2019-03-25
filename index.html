@@ -1,30 +1,58 @@
 <!DOCTYPE html>
-
 <html>
 <head>
-	<title>Stream Free Movie Website</title>
-	<link rel="stylesheet" href="style.css">
+	<title>Movie Website</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<div class="wrapper">
-		<div class="bgslide">
-			<div class="nav">
-				<div class="logo">
-					<img src="image/logo.png">
-				</div>
-				<div class="nav-bar">
-					<ul>
-						<li><a href="#">Home</a></li>
-						<li><a href="#">New Movie</a></li>
-						<li><a href="#">Popular Movie</a></li>
-						<li><a href="#">Upcoming Movie</a></li>
-					</ul>
-				</div>
+
+<div class="wrapper">
+	<div class="bgslide">
+		<div class="nav">
+			<div class="logo">
+				<img src="image/logo.png">
 			</div>
-			<div class="play-button">
-				<img src="image/play.png">
+			<div class="menu">
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">New Movies</a></li>
+					<li><a href="#">Popular Movies</a></li>
+					<li><a href="#">Upcoming Movies</a></li>
+				</ul>
 			</div>
 		</div>
+
+		<div class="play_button">
+			<img src="image/play.png">
+		</div>
 	</div>
+
+	<div class="video_modal">
+		<div class="closebtn">X</div>
+		<video id="myvideo" width="80%" height="auto" controls autoplay="">
+			<source src="video/earth_zoom_in.mp4" type="video/mp4">
+			<source src="video/earth_zoom_in.mp4" type="video/ogg">
+		</video>
+	</div>
+
+
+	<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var $playbtn = $(".play_button"),
+			$openvid = $(".video_modal"),
+			$closevid = $(".closebtn"),
+			$video = $("#myvideo").get(0);
+
+			$playbtn.click(function(){
+				$openvid.fadeIn();
+				$video.load();
+			});
+
+			$closevid.click(function(){
+				$openvid.fadeOut();
+			});
+		});
+	</script>
 </body>
 </html>
